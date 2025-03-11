@@ -30,6 +30,37 @@ Interested to learn other PHP frameworks like CodeIgniter, Yii. Also frontend fr
 3. NIL
 
 
+## The Real Stuff
+
+1.
+
+function getArray($num){
+
+    $length = strlen($num);
+
+    $const = 10 ** ($length - 1);
+    
+    $arr = [];
+
+    while( $num>0 )
+    {
+
+        $extracted = (int)($num / $const); 
+
+        $arr[] = $extracted; 
+
+        $num = $num % $const; 
+
+        $const /= 10;  
+        
+    }
+
+    return $arr;
+
+}
+
+
+
 
 
 
