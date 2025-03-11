@@ -21,4 +21,15 @@ Node.js - for frontend dependencies with npm
 Interested to learn other PHP frameworks like CodeIgniter, Yii. Also frontend frameworks like React.js, Vue.js
 
 
+## Social Profile
+
+1. Git profile URL - https://github.com/Fthahasim
+
+2. LinkedIn profile - https://www.linkedin.com/in/fathima-thahasim-u
+
+3. NIL
+
+
+
+
 
