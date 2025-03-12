@@ -70,6 +70,7 @@ $pigLatinText = $this->toPigLatin($text,$vowels);
 
 $reversePigLatin = $this->reversePigLatin($pigLatinText,$vowels);
 
+echo $text,$pigLatinText,$reversePigLatin;
 
 public function toPigLatin($text,$vowels) // to pig latin
 {
@@ -133,3 +134,31 @@ public function reversePigLatin($pigLatinText,$vowels) // reverse pig latin
 
 
 
+3.
+
+$k = 2;
+$arr = [1, 2, 3, 4, 5, 6];
+
+$result = $this->rotateArray($arr, $k);
+
+echo $result;
+
+public function rotateArray($arr, $k) { 
+    $n = count($arr);
+    $k = $k % $n; 
+
+    $arr = $this->reverse($arr, 0, $k - 1); // reverse first k 
+    $arr = $this->reverse($arr, $k, $n - 1); // reverse remaining
+    $arr = $this->reverse($arr, 0, $n - 1); // reverse whole
+
+    return $arr; 
+}
+
+public function reverse($arr, $start, $end) { 
+    while ($start < $end) {
+        list($arr[$start], $arr[$end]) = [$arr[$end], $arr[$start]];
+        $start++;
+        $end--;
+    }
+    return $arr; 
+}
