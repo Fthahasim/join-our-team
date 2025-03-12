@@ -60,7 +60,76 @@ function getArray($num){
 }
 
 
+2.
 
+$text = 'Join with yellowfish';  
+
+$vowels = ['a','e','i','o','u','A','E','I','O','U'];
+
+$pigLatinText = $this->toPigLatin($text,$vowels);
+
+$reversePigLatin = $this->reversePigLatin($pigLatinText,$vowels);
+
+
+public function toPigLatin($text,$vowels) // to pig latin
+{
+    $words = explode(" ", $text);
+
+    $pigLatin = [];
+
+    foreach ($words as $word) {
+
+        $firstLetter = substr($word, 0, 1); // 1st letter
+        $remainingWord = substr($word, 1); // remaining 
+
+        if (ctype_alpha($word)) { 
+            if(in_array($firstLetter,$vowels)){
+                $pigLatin[] = $word . 'ay';
+            }else{
+                $pigLatin[] = $remainingWord . $firstLetter . 'ay';
+            }
+        } else {
+            $pigLatin[] = $word; 
+        }
+        
+    }
+
+    $pigLatinText = implode(" ", $pigLatin);
+
+    return $pigLatinText;
+}
+
+
+public function reversePigLatin($pigLatinText,$vowels) // reverse pig latin
+{
+    
+    $words = explode(" ", $pigLatinText);
+
+    $reversed = [];
+
+    foreach ($words as $word) {
+
+        $initial = substr($word, -3, 1);  // 3rd last
+        $last2letter = substr($word, -2); // ay
+
+        $vowelSuffix = substr($word, 0, -2); // remove last 2
+        $consonantSuffix = substr($word, 0, -3); // remove last 3
+
+        if(ctype_alpha($word) && $last2letter === 'ay'){
+            if(in_array($initial,$vowels)){
+                $reversed[] = $vowelSuffix;
+            }else{
+                $reversed[] = $initial.$consonantSuffix;
+            }
+        }else{
+            $reversed[] = $word;
+        }
+    }
+
+    $pigLatinBack = implode(" ", $reversed);
+
+    return $pigLatinBack;
+}
 
 
 
